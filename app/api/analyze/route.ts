@@ -415,6 +415,7 @@ async function callGemini(prompt: string): Promise<GeminiCallResult> {
 
 // ─── PDF text extraction ──────────────────────────────────────────────────────
 async function extractPdfText(buffer: Buffer): Promise<string> {
+  // @ts-ignore
   const pdfParse = (await import("pdf-parse-fork")).default;
   const data     = await pdfParse(buffer);
   const text     = data.text?.trim() ?? "";
